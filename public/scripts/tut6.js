@@ -1,7 +1,7 @@
 // Adapted from https://github.com/shanet/WebRTC-Example
 
-var localVid = $("#localVideo");
-var remoteVid = $("#remoteVideo");
+var localVid = $("#localVideo"); //user
+var remoteVid = $("#remoteVideo"); //otheruser
 var btn1 = $("#btn-client1");
 var btn2 = $("#btn-client2");
 var theInput = $("#msgInput");
@@ -55,24 +55,15 @@ callBtn.on("click", () => {
 });
 
 function getWebcam() {
-    if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({
-                video: true,
-                audio: true,
-            },
-            (stream) => {
-                // success
-                localStream = stream;
-                localVid.prop("srcObject", stream);
-            },
-            (error) => {
-                // error
-                console.error(error);
-            }
-        );
-    } else {
-        alert("Your browser does not support getUserMedia API");
-    }
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(stream => {
+            console.log("Got mediastrean", stream)
+            localStream = stream;
+            localVid.prop("srcObject", stream);
+        })
+        .catch(error => {
+            console.error(error)
+        });
 }
 
 function start(isCaller) {
