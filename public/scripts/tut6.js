@@ -55,8 +55,8 @@ callBtn.on("click", () => {
 });
 
 function getWebcam() {
-    if (navigator.getUserMedia) {
-        navigator.getUserMedia({
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true,
             },
