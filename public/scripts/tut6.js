@@ -89,7 +89,7 @@ function getWebcam() {
 }
 
 function initStory() {
-    callBtn.prop('disabled', true);
+    //callBtn.prop('disabled', true);
     startStoryButton.style.display = "none";
     line1.innerHTML = storylines[count];
     line2.innerHTML = storylines[count+1];
