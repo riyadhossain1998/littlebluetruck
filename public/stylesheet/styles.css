@@ -1,14 +1,14 @@
 body {
-    background-color: orange;
+    background-color: bisque;
 }
 
 
 .host {
-    background-color: lime;
+    background-color: white;
 }
 
 .guest {
-    background-color: bisque;
+    background-color: white;
 }
 
 #continue { 
@@ -18,3 +18,16 @@ body {
 #host, #remoteVideo {
     width: 100%;
 }
+
+.btn-dark {
+    border-radius: 10rem;
+    width: 5rem;
+    height: 2.5rem;
+}
+
+#btn-call {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 3rem;
+}
+

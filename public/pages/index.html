@@ -4,8 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Describe this page." />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../stylesheet/styles.css">
+    
     <title>Tutorial 6</title>
   </head>
   <body>
@@ -28,6 +30,7 @@
         
         <div class="col-md-12 mt-5 soundboard">
           <!-- Soundboard -->
+          <h3 class="text-center">Click here for animal sounds!</h3>
           <audio id="cow"><source src="/sounds/cow.mp3" type="audio/mpeg"></audio>
           <audio id="horse"><source src="/sounds/horse.mp3" type="audio/mpeg"></audio>  
           <audio id="chicken"><source src="/sounds/chicken.mp3" type="audio/mpeg"></audio>  
@@ -37,10 +40,10 @@
           <div class="row justify-content-center mb-4">
             <button type="button" class="btn btn-dark" onclick="playSound('cow')">Cow</button>
             <button type="button" class="btn btn-dark" onclick="playSound('horse')">Horse</button>
-            <button type="button" class="btn btn-dark" onclick="playSound('chicken')">Chk</button>
-            <button type="button" class="btn btn-dark" onclick="playSound('frog')">F</button>
-            <button type="button" class="btn btn-dark" onclick="playSound('pig')">P</button>
-            <button type="button" class="btn btn-dark" onclick="playSound('sheep')">S</button>
+            <button type="button" class="btn btn-dark" onclick="playSound('chicken')">Chicken</button>
+            <button type="button" class="btn btn-dark" onclick="playSound('frog')">Frog</button>
+            <button type="button" class="btn btn-dark" onclick="playSound('pig')">Pig</button>
+            <button type="button" class="btn btn-dark" onclick="playSound('sheep')">Sheep</button>
           </div>
 
         </div>
@@ -51,8 +54,8 @@
             <p id="line2"></p>
             <p id="line3"></p>
             <p id="line4"></p>
-            <button type="button" id="startStory" >Start Story</button>
-            <button type="button" id="continue" onclick="continueStory()">Next</button>
+            <button type="button" class="btn btn-outline-success" id="startStory" onclick="startReading()">Start Story</button>
+            <button type="button" class="btn btn-outline-success" id="continue" onclick="continueStory()">Next</button>
         </div>
         <div class="col-md-4">
           
@@ -65,11 +68,11 @@
       </div>
       <div class="container mt-3">
         <div class="row justify-content-md-center">
-            <button type="button" class="btn btn-success" id="btn-call">Call</button>
+            <button type="button" class="btn btn-success" id="btn-call"><i class="fa fa-phone" aria-hidden="true"></i></button>
             
         </div>
         <div class="row justify-content-md-center">
-          <div id="msgDiv">test</div>
+          <div id="msgDiv"></div>
         </div>
       </div>
     </div>

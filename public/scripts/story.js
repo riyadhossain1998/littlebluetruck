@@ -10,30 +10,30 @@ var storylines = [
 
     "Little Blue Truck",
     "came down the road.",
-    /*beep*/"() said Blue",
+    "<b>Beep</b> said Blue",
     "to a big green toad", 
     
-    "Toad said"/*croak*/,
+    "Toad said <b>Croak</b>"/*croak*/,
     "and winked an eye",
     "when Little Blue Truck",
     "went rolling by",
     
-    "Sheep said", /*Baaa*/
-    "Cow said, ",/*Moo*/
-    /*Oink*/ "said a piggy.",
-    /*Beep*/ "said Blue",
+    "Sheep said <b>Baaa</b>", /*Baaa*/
+    "Cow said, <b>Moo</b>",/*Moo*/
+    /*Oink*/ "<b>Oink</b> said a piggy.",
+    /*Beep*/ "<b>Beep</b> said Blue",
     
-    /*Cluck*/"said a chicken",
-    "and her chick said, " /*Peep*/,
-    /*Maaa*/ "said a goat",
-    "Blue said, " /*Beep*/,
+    /*Cluck*/"<b>Cluck</b> said a chicken",
+    "and her chick said, <b>Peep</b> " /*Peep*/,
+    /*Maaa*/ "<b>Maaa</b> said a goat",
+    "Blue said, <b>Beep</b>" /*Beep*/,
     
-    /*Neigh*/"said a horse",
-    /*Quack*/ "said a duck",
-    /*Beep*/ "said the friendly",
+    /*Neigh*/"<b>Neigh</b> said a horse",
+    /*Quack*/ "<b>Quack</b> said a duck",
+    /*Beep*/ "<b>Beep</b> said the friendly",
     "Little Blue Truck",
     
-    "Honk!!",
+    "<b>Honk!!</b>",
     "Yelled a dump truck",
     "Coming through",
     "I've big important things to do",
@@ -75,7 +75,7 @@ var storylines = [
 ];
 
 var startStoryButton = document.getElementById("startStory");
-var continueStoryButton = $("continue");
+var continueStoryButton = document.getElementById("continue");
 
 
 
@@ -87,7 +87,7 @@ var count = 0;
 
 
 
-
+/*
 function sendData(client) {
     var msg = {
         type: "message", 
@@ -101,19 +101,9 @@ function sendData(client) {
     
 
 }
-/*
+*/
 
 function startReading() {
-    console.log(clients);
-    destination = 'ws://' + location.host + '/client1';
-    ws = new WebSocket(destination);
-    ws.onopen = (e) => {
-        ws.send("Attempt to Connect")
-        
-    } 
-    ws.onmessage = (e) => {
-        msgDic.html(e.data)
-    }
     startStoryButton.style.display = "none";
     line1.innerHTML = storylines[count];
     line2.innerHTML = storylines[count+1];
@@ -136,8 +126,6 @@ function continueStory() {
     }
 }
 
-Plan: 
-    Read from lines, use 
 
-*/
+
 

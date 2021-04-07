@@ -47,7 +47,7 @@ btn1.on("click", () => {
     serverConnection = new WebSocket(destination);
     serverConnection.onmessage = handleMessage;
 
-    serverConnection.onopen
+    
 });
 
 btn2.on("click", () => {
@@ -62,7 +62,7 @@ btn2.on("click", () => {
 callBtn.on("click", () => {
     start(true);
 });
-
+/*
 continueStoryButton.on("click", () => {
     ws.onopen = (e) => {
         count++;
@@ -74,7 +74,7 @@ continueStoryButton.on("click", () => {
     }   
     
 });
-
+*/
 
 function getWebcam() {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
