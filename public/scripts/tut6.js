@@ -37,17 +37,23 @@ const MessageType = {
     CALL_REQUEST: 3,
 };
 
+var count = 0;
+
 btn1.on("click", () => {
     getWebcam();
     btn2.prop("disabled", true);
+    initStory();
     destination = "wss://" + location.host + "/client1";
     serverConnection = new WebSocket(destination);
     serverConnection.onmessage = handleMessage;
+
+    serverConnection.onopen
 });
 
 btn2.on("click", () => {
     getWebcam();
     btn1.prop("disabled", true);
+    initStory();
     destination = "wss://" + location.host + "/client2";
     serverConnection = new WebSocket(destination);
     serverConnection.onmessage = handleMessage;
@@ -56,6 +62,19 @@ btn2.on("click", () => {
 callBtn.on("click", () => {
     start(true);
 });
+
+continueStoryButton.on("click", () => {
+    ws.onopen = (e) => {
+        count++;
+        ws.send(storylines[count])
+        
+    }
+    ws.onmessage = (e) => {
+        line1.innerHTML = e.data;
+    }   
+    
+});
+
 
 function getWebcam() {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -69,6 +88,18 @@ function getWebcam() {
         });
 }
 
+function initStory() {
+    callBtn.prop('disabled', true);
+    startStoryButton.style.display = "none";
+    line1.innerHTML = storylines[count];
+    line2.innerHTML = storylines[count+1];
+    line3.innerHTML = storylines[count+2];
+    line4.innerHTML = storylines[count+3];
+    continueStoryButton.style.display = "block";
+    count = 3;
+}
+
+
 function start(isCaller) {
     peerConnection = new RTCPeerConnection(peerConnectionConfig);
     peerConnection.onicecandidate = gotIceCandidate;
@@ -78,6 +109,8 @@ function start(isCaller) {
     if (isCaller) {
         peerConnection.createOffer().then(createdDescription).catch(errorHandler); // using chained Promises for async
     }
+    
+   
 }
 
 function gotIceCandidate(event) {
