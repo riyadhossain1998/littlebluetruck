@@ -3,7 +3,7 @@ var author1 = "Alice Schertle";
 var author2 = "Jill McElmurry"
 
 var storylines = [
-    "Horn went <b>beep</b>"/*beep*/,
+    "Horn went <b>Beep</b>"/*beep*/,
     "Engine purred",
     "Friendliest sounds",
     "you ever heard",
@@ -83,8 +83,63 @@ var line3 = document.getElementById("line3");
 var line4 = document.getElementById("line4");
 var count = 0;
 
-function startReading() {
+var dst1 = 'ws://' + location.host + '/client1';
+var dst2 = 'ws://' + location.host + '/client2';
+
+ws1 = new WebSocket(dst1);
+ws2 = new WebSocket(dst2);
+
+startStoryButton.on("click", () => {
+    startStoryButton.style.display = "none";
     
+    ws1.onopen = function(event) {
+        ws.send(storylines[0])
+    }
+
+    ws2.onopen = function(event) {
+        ws.send(storylines[0])
+    }
+
+    ws1.onmessage = function(event) {
+        var msg = event.data;
+        line1.innerHTML += msg;
+        
+        
+    }
+    ws2.onmessage = function(event) {
+        var msg = event.data;
+        line1.innerHTML += msg;
+        
+        
+    }
+});
+
+function sendData(client) {
+    var msg = {
+        type: "message", 
+        text: storylines[0],
+        id: client,
+        
+    };
+
+    serverConnection.send(JSON.stringify(msg));
+
+    
+
+}
+/*
+
+function startReading() {
+    console.log(clients);
+    destination = 'ws://' + location.host + '/client1';
+    ws = new WebSocket(destination);
+    ws.onopen = (e) => {
+        ws.send("Attempt to Connect")
+        
+    } 
+    ws.onmessage = (e) => {
+        msgDic.html(e.data)
+    }
     startStoryButton.style.display = "none";
     line1.innerHTML = storylines[count];
     line2.innerHTML = storylines[count+1];
@@ -106,7 +161,7 @@ function continueStory() {
         startStoryButton.style.display = "block";
     }
 }
-/*
+
 Plan: 
     Read from lines, use 
 
