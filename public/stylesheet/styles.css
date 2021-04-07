@@ -1,0 +1,20 @@
+body {
+    background-color: orange;
+}
+
+
+.host {
+    background-color: lime;
+}
+
+.guest {
+    background-color: bisque;
+}
+
+#continue { 
+    display: none;
+}
+
+#host, #remoteVideo {
+    width: 100%;
+}

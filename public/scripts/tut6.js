@@ -15,7 +15,12 @@ var serverConnection;
 const peerConnectionConfig = {
     iceServers: [
         { urls: "stun:stun.stunprotocol.org:3478" },
-        { urls: "stun:stun.l.google.com:19302" },
+        { urls: "stun:stun.l.google.com:19302" }
+    ],
+};
+
+
+/*,
         { urls: "stun:stun1.l.google.com:19302" },
         { urls: "stun:stun2.l.google.com:19302" },
         { urls: "stun:stun3.l.google.com:19302" },
@@ -24,9 +29,7 @@ const peerConnectionConfig = {
         { urls: "stun:stun.fwdnet.net" },
         { urls: "stun:stun.ideasip.com" },
         { urls: "stun:stun.iptel.org" },
-    ],
-};
-
+*/
 const MessageType = {
     SERVER_INFO: 0,
     CLIENT1: 1,
